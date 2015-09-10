@@ -5,8 +5,8 @@ MAINTAINER tobilg <fb.tools.github@gmail.com>
 RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes \
     wget \
     git \
-	openjdk-6-jre \
-	libjansi-java \
+    openjdk-6-jre \
+    libjansi-java \
     libsvn1 \
     libcurl3 \
     libsasl2-modules && \
@@ -18,7 +18,7 @@ ENV SCALA_VERSION 2.10.5
 ENV SPARK_VERSION 1.4.1
 ENV MESOS_VERSION 0.23.0
 ENV SPARK_JOBSERVER_BRANCH v0.5.2
-	
+
 # SBT install
 RUN wget https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
     dpkg -i sbt-$SBT_VERSION.deb && \
@@ -33,7 +33,7 @@ RUN wget http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION
 RUN wget http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb && \
     dpkg -i mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb && \
     rm mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb
-	
+
 # Spark ENV vars
 ENV SPARK_VERSION_STRING spark-$SPARK_VERSION-bin-hadoop2.6
 ENV SPARK_DOWNLOAD_URL http://d3kbcqa49mib13.cloudfront.net/$SPARK_VERSION_STRING.tgz
@@ -43,8 +43,8 @@ RUN wget $SPARK_DOWNLOAD_URL && \
     mkdir -p /usr/local/spark && \
     tar xvf $SPARK_VERSION_STRING.tgz -C /tmp && \
     cp -rf /tmp/$SPARK_VERSION_STRING/* /usr/local/spark/ && \
-	rm -rf -- /tmp/$SPARK_VERSION_STRING && \
-	rm spark-$SPARK_VERSION-bin-hadoop2.6.tgz
+    rm -rf -- /tmp/$SPARK_VERSION_STRING && \
+    rm spark-$SPARK_VERSION-bin-hadoop2.6.tgz
 
 # Set SPARK_HOME
 ENV SPARK_HOME /usr/local/spark
@@ -79,9 +79,9 @@ RUN bin/server_deploy.sh docker && \
 # Cleanup files, folders and variables
 RUN unset SPARK_VERSION_STRING && \
     unset SPARK_DOWNLOAD_URL && \
-	unset SPARK_JOBSERVER_BRANCH && \
-	unset SPARK_JOBSERVER_BUILD_HOME
+    unset SPARK_JOBSERVER_BRANCH && \
+    unset SPARK_JOBSERVER_BUILD_HOME
 
 EXPOSE 8090 9999
 
-#ENTRYPOINT ["/app/server_start.sh"]
+ENTRYPOINT ["/app/server_start.sh"]
