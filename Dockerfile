@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes \
 ENV SBT_VERSION 0.13.7
 ENV SCALA_VERSION 2.10.5
 ENV SPARK_VERSION 1.4.1
-ENV MESOS_BUILD_VERSION 0.24.0
+ENV MESOS_BUILD_VERSION 0.23.0
 ENV SPARK_JOBSERVER_BRANCH v0.5.2
 
 # SBT install
@@ -30,9 +30,9 @@ RUN wget http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION
     rm scala-$SCALA_VERSION.deb
 
 # Mesos install
-RUN wget http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb && \
-    dpkg -i mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb && \
-    rm mesos_$MESOS_VERSION-1.0.ubuntu1404_amd64.deb
+RUN wget http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_$MESOS_BUILD_VERSION-1.0.ubuntu1404_amd64.deb && \
+    dpkg -i mesos_$MESOS_BUILD_VERSION-1.0.ubuntu1404_amd64.deb && \
+    rm mesos_$MESOS_BUILD_VERSION-1.0.ubuntu1404_amd64.deb
 
 # Spark ENV vars
 ENV SPARK_VERSION_STRING spark-$SPARK_VERSION-bin-hadoop2.6
@@ -80,7 +80,8 @@ RUN bin/server_deploy.sh docker && \
 RUN unset SPARK_VERSION_STRING && \
     unset SPARK_DOWNLOAD_URL && \
     unset SPARK_JOBSERVER_BRANCH && \
-    unset SPARK_JOBSERVER_BUILD_HOME
+    unset SPARK_JOBSERVER_BUILD_HOME && \
+    unset MESOS_BUILD_VERSION
 
 EXPOSE 8090 9999
 
