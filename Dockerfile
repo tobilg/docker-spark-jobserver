@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes \
 # Overall ENV vars
 ENV SBT_VERSION 0.13.7
 ENV SCALA_VERSION 2.10.5
-ENV SPARK_VERSION 1.4.1
+ENV SPARK_VERSION 1.5.0
 ENV MESOS_BUILD_VERSION 0.23.0
 ENV SPARK_JOBSERVER_BRANCH v0.5.2
 
