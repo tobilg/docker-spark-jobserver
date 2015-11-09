@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends --force-yes \
 ENV SBT_VERSION 0.13.7
 ENV SCALA_VERSION 2.10.5
 ENV SPARK_VERSION 1.4.1
-ENV MESOS_BUILD_VERSION 0.24.1-0.2.35
+ENV MESOS_BUILD_VERSION 0.25.0-0.2.70
 ENV SPARK_JOBSERVER_BRANCH v0.6.0
 
 # SBT install
