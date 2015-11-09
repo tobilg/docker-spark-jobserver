@@ -1,7 +1,7 @@
 # Spark Jobserver
 
-Spark-Jobserver as a Docker container! This image has been created to support the most recent version of Spark (1.4.1), together with the most recent version of Mesos (0.24.1 as of 2015-09-29).
-It's loosely derived from `velvia/spark-jobserver`, and these docs have adapt to match `tobilg/spark-jobserver`.
+Spark-Jobserver as a Docker container! This image has been created to support the most recent versions of Spark together with the most recent versions of Mesos. Have a look at the ["Tags" tab](https://hub.docker.com/r/tobilg/spark-jobserver/tags/) to see which combinations are supported.
+It's loosely derived from `velvia/spark-jobserver`, and these docs have been adapted to match `tobilg/spark-jobserver`.
 
 To get started:
 
